@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/firstpage.css" />
     <title>Welcome To ToTrick</title>
+    
 </head>
 
 <body>
 
-<nav>
+    <nav>
         <div class="nav__header">
             <div class="nav__logo">
                 <a href="/project1/firstpage.php" class="logo">To<span>Trick</span></a>
@@ -25,31 +26,12 @@
             <li><a href="/project1/firstpage.php">Home</a></li>
             <li><a href="/project1/firstpage.php#Feature">Features</a></li>
             <li><a href="/project1/profile.php">Profile</a></li>
-            <li>
-
         </ul>
+
     </nav>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/main2.js"></script>
 </body>

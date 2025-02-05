@@ -1,0 +1,96 @@
+
+/* Container for the whole page */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Form section styling */
+.form-section {
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #1B2E3C;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+}
+
+button {
+    background-color:#1B2E3C;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #9AB19A;
+}
+
+/* Charts section */
+.charts-section {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%; 
+    height: 400px; 
+}
+
+#pieChart, #barChart {
+    width: 70% ;  
+    height: 300px ;
+}
+
+
+h2 {
+    font-size: 1.8rem;
+    color: #0C2D48;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+a {
+    color: #d9534f;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+

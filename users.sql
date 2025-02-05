@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2024 at 01:56 PM
+-- Generation Time: Dec 13, 2024 at 07:27 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -68,7 +68,7 @@ CREATE TABLE `financial_overview` (
 --
 
 INSERT INTO `financial_overview` (`id`, `current_balance`, `monthly_income`, `monthly_expenses`, `created_at`) VALUES
-(1, 5000.00, 5000.00, 0.00, '2024-07-16 06:22:59');
+(1, 4000.00, 6000.00, 2000.00, '2024-07-16 06:22:59');
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,37 @@ CREATE TABLE `financial_records` (
 --
 
 INSERT INTO `financial_records` (`id`, `type`, `amount`, `description`, `date`, `created_at`) VALUES
-(18, 'saving', 5000.00, 'Tutions', '2024-09-01', '2024-09-21 11:10:18');
+(18, 'saving', 5000.00, 'Tutions', '2024-09-01', '2024-09-21 11:10:18'),
+(19, 'saving', 1000.00, 'dsds', '2024-12-05', '2024-12-05 17:39:32'),
+(20, 'cost', 2000.00, 'sdsd', '2024-12-06', '2024-12-05 17:39:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `habits`
+--
+
+CREATE TABLE `habits` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `exercise` float NOT NULL,
+  `reading` float NOT NULL,
+  `coding` float NOT NULL,
+  `sleeping` float NOT NULL,
+  `praying` int(11) DEFAULT 0,
+  `social_media` int(11) DEFAULT 0,
+  `breaks` int(11) DEFAULT 0,
+  `drinking_water` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `habits`
+--
+
+INSERT INTO `habits` (`id`, `uid`, `exercise`, `reading`, `coding`, `sleeping`, `praying`, `social_media`, `breaks`, `drinking_water`) VALUES
+(46, 7, 4, 1, 5, 15, 0, 0, 0, 0),
+(49, 5, 2, 6, 3, 10, 5, 8, 4, 10),
+(50, 5, 1, 4, 4, 13, 5, 5, 9, 15);
 
 -- --------------------------------------------------------
 
@@ -174,7 +204,8 @@ INSERT INTO `tasks` (`sno`, `uid`, `title`, `description`, `tstamp`, `start_date
 (13, 5, 'Appoinment', 'Doctors appoinment', '2024-09-21 17:05:23', '2024-09-21', '2024-10-02'),
 (14, 5, 'Project Deadline', 'Submit DB project', '2024-09-21 17:05:57', '2024-09-15', '2024-09-18'),
 (15, 5, 'personal Goal', 'Finish a book before deadline', '2024-09-21 17:06:50', '2024-09-21', '2024-09-23'),
-(16, 7, 'Skill', 'acquire a skill ', '2024-09-21 17:53:18', '2024-09-21', '2024-11-30');
+(16, 7, 'Skill', 'acquire a skill ', '2024-09-21 17:53:18', '2024-09-21', '2024-11-30'),
+(17, 5, 'jbdjue', 'jkbiudefa', '2024-12-05 23:39:05', '2024-12-05', '2024-12-06');
 
 -- --------------------------------------------------------
 
@@ -222,7 +253,7 @@ INSERT INTO `watch_links` (`id`, `uid`, `title`, `url`, `deadline`, `progress`, 
 (7, 7, 'Scholarship in USA', 'https://www.youtube.com/watch?v=vXjLnZSW1Co', '2024-09-20', 80, '2024-09-18 06:40:52'),
 (8, 7, 'Data Blog', 'https://dataniyekotha.gitbook.io/undefined', '2024-09-20', 40, '2024-09-18 06:42:10'),
 (10, 5, 'JavaScript Tutorial', 'https://www.youtube.com/watch?v=PkZNo7MFNFg', '2024-12-30', 20, '2024-09-21 11:25:44'),
-(11, 5, 'Python Tutorial', 'https://www.youtube.com/watch?v=_uQrJ0TkZlc', '2024-12-31', 70, '2024-09-21 11:26:45'),
+(11, 5, 'Python Tutorial', 'https://www.youtube.com/watch?v=_uQrJ0TkZlc', '2024-12-31', 80, '2024-09-21 11:26:45'),
 (12, 5, 'Resources for Web development', 'https://www.w3schools.com/html/', '2024-09-30', 90, '2024-09-21 11:27:48');
 
 --
@@ -247,6 +278,13 @@ ALTER TABLE `financial_overview`
 --
 ALTER TABLE `financial_records`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `habits`
+--
+ALTER TABLE `habits`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `uid` (`uid`);
 
 --
 -- Indexes for table `notes`
@@ -302,13 +340,19 @@ ALTER TABLE `financial_overview`
 -- AUTO_INCREMENT for table `financial_records`
 --
 ALTER TABLE `financial_records`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `habits`
+--
+ALTER TABLE `habits`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `project_budgets`
@@ -320,7 +364,7 @@ ALTER TABLE `project_budgets`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -337,6 +381,12 @@ ALTER TABLE `watch_links`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `habits`
+--
+ALTER TABLE `habits`
+  ADD CONSTRAINT `habits_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`sid`);
 
 --
 -- Constraints for table `notes`

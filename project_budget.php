@@ -30,6 +30,7 @@ $delete = false;
         background-color: #f5c6cb;
     }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -140,7 +141,10 @@ $delete = false;
                         }
                     }
 
-                    // Fetch and display all budgets for the current user
+                    
+                    $project_names = [];
+                    $budget_values = [];
+                    $spent_values = [];
                     $result = $conn->query("SELECT * FROM project_budgets WHERE uid = '$uid'");
                     while ($row = $result->fetch_assoc()) {
                         $class = $row['spent'] <= $row['budget'] ? 'budget-green' : 'budget-red';
@@ -155,6 +159,11 @@ $delete = false;
                                     <a href='project_budget.php?delete_budget={$row['id']}' class='badge badge-danger' style='font-size: 1em; padding: 11px 17px;' >Delete</a>
                                 </td>
                               </tr>";
+
+                        
+                        $project_names[] = $row['project_name'];
+                        $budget_values[] = $row['budget'];
+                        $spent_values[] = $row['spent'];
                     }
 
                     $conn->close();
@@ -162,7 +171,58 @@ $delete = false;
                 </tbody>
             </table>
         </div>
+
+        <!-- Line Chart Section -->
+        <div class="container mt-5">
+            <h3 class="section__header">Budget vs Spent Line Chart</h3>
+            <canvas id="budgetChart"></canvas>
+        </div>
+
+        <script>
+        
+        const projectNames = <?php echo json_encode($project_names); ?>;
+        const budgetValues = <?php echo json_encode($budget_values); ?>;
+        const spentValues = <?php echo json_encode($spent_values); ?>;
+
+        
+        const ctx = document.getElementById('budgetChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: projectNames,
+                datasets: [
+                    {
+                        label: 'Budget',
+                        data: budgetValues,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: true
+                    },
+                    {
+                        label: 'Spent',
+                        data: spentValues,
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Budget vs Spent for Each Project'
+                    }
+                }
+            }
+        });
+        </script>
     </section>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

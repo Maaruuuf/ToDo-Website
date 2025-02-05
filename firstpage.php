@@ -17,6 +17,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/firstpage.css" />
     <title>Welcome To ToTrick</title>
+
 </head>
 
 <body>
@@ -34,8 +35,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             <li><a href="#Feature">Features</a></li>
             <li><a href="#service">Solutions</a></li>
             <li><a href="#contact">Resources</a></li>
-            <li><button class="btn"><a href="/project1/profile.php">User Profile</a></button></li>
         </ul>
+        
     </nav>
     <header class="section__container header__container" id="home">
         <img src="assets/logo3.png" alt="header" />
@@ -55,10 +56,10 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             productivity.
         </p>
         <div class="header__btns">
-            <a href="#Feature" class="btn">Get Started Now</a>
-            <a href="#">
+            <a href="/project1/profile.php" class="btn"> My Profile </a>
+            <a href="">
                 <span><i class="ri-play-fill"></i></span>
-                How It Works?
+                How this website Works?
             </a>
         </div>
     </header>
@@ -122,7 +123,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         </p>
 
         <div class="explore__grid">
-            <a href="/project1/task.php" class="explore__card">
+            <a href="task.php" class="explore__card">
                 <span><i class="ri-checkbox-circle-fill"></i></span>
                 <h4>Task Management</h4>
                 <p>Create, update and delete</p>
@@ -152,9 +153,14 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
                 <h4>Resource Management</h4>
                 <p>Save and manage links</p>
             </a>
+            <a href="/project1/habit.php" class="explore__card">
+                <span><i class="ri-mental-health-fill"></i></span> 
+                <h4>Habit Tracker</h4>
+                <p>visualize your progress!</p>
+            </a>
         </div>
         <div class="explore__btn">
-        <a href="#Feature" class="btn">Save Time and Get More Done Now ! </a>
+            <a href="#Feature" class="btn">Save Time and Get More Done Now ! </a>
         </div>
     </section>
 
@@ -218,6 +224,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
                     <li><a href="#Feature">Features</a></li>
                     <li><a href="#service">Testimonials</a></li>
                     <li><a href="/project1/contact.php">Contact Us</a></li>
+                    
                 </ul>
             </div>
             <div class="footer__col">
@@ -251,6 +258,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             Copyright © 2024 Group-2(84,86,93). All rights reserved.
         </div>
     </footer>
+
+
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

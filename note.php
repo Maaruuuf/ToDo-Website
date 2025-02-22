@@ -117,12 +117,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="mb-3">
                             <label for="title">Note Title</label>
                             <input type="text" class="form-control" id="titleEdit" name="titleEdit"
-                                aria-describedby="emailHelp">
+                                aria-describedby="emailHelp"  required>
                         </div>
                         <div class="mb-3">
                             <label for="desc">Note Description</label>
                             <textarea class="form-control" id="descriptionEdit" name="descriptionEdit"
-                                rows="3"></textarea>
+                                rows="3"  required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Update Note</button>
                     </form>
@@ -176,11 +176,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <form action="/project1/note.php" method="post">
             <div class="mb-3">
                 <label for="title">Note Title</label>
-                <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
                 <label for="desc">Note Description</label>
-                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                <textarea class="form-control" id="description" name="description" rows="3"  required></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Add Note</button>
         </form>

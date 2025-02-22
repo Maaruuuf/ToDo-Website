@@ -108,20 +108,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="hidden" name="snoEdit" id="snoEdit">
                         <div class="mb-3">
                             <label for="title">Task Title</label>
-                            <input type="text" class="form-control" id="titleEdit" name="titleEdit">
+                            <input type="text" class="form-control" id="titleEdit" name="titleEdit"  required>
                         </div>
                         <div class="mb-3">
                             <label for="desc">Task Description</label>
                             <textarea class="form-control" id="descriptionEdit" name="descriptionEdit"
-                                rows="3"></textarea>
+                                rows="3"  required></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="start_date">Todays Date</label>
-                            <input type="date" class="form-control" id="start_dateEdit" name="start_dateEdit">
+                            <label for="start_date">Start Date</label>
+                            <input type="date" class="form-control" id="start_dateEdit" name="start_dateEdit"  required>
                         </div>
                         <div class="mb-3">
                             <label for="deadline_date">Deadline Date</label>
-                            <input type="date" class="form-control" id="deadline_dateEdit" name="deadline_dateEdit">
+                            <input type="date" class="form-control" id="deadline_dateEdit" name="deadline_dateEdit"  required>
                         </div>
                         <button type="submit" class="btn btn-primary">Update Task</button>
                     </form>
@@ -175,19 +175,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="/project1/task.php" method="post">
             <div class="mb-3">
                 <label for="title">Task Title</label>
-                <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp"  required>
             </div>
             <div class="mb-3">
                 <label for="desc">Task Description</label>
-                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                <textarea class="form-control" id="description" name="description" rows="3"  required></textarea>
             </div>
             <div class="mb-3">
-                <label for="start_date">Todays Date</label>
-                <input type="date" class="form-control" id="start_date" name="start_date">
+                <label for="start_date">Start Date</label>
+                <input type="date" class="form-control" id="start_date" name="start_date" value="<?php echo date('Y-m-d'); ?>" required>
             </div>
             <div class="mb-3">
                 <label for="deadline_date">Deadline Date</label>
-                <input type="date" class="form-control" id="deadline_date" name="deadline_date">
+                <input type="date" class="form-control" id="deadline_date" name="deadline_date"  required>
             </div>
             <button type="submit" class="btn btn-danger">Add Task</button>
         </form>
@@ -298,9 +298,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 tr = e.target.closest('tr');
                 title = tr.getElementsByTagName("td")[0].innerText;
                 description = tr.getElementsByTagName("td")[1].innerText;
-                console.log(title, description);
+                start_date = tr.getElementsByTagName("td")[2].innerText; // Get start date
+                deadline_date = tr.getElementsByTagName("td")[3].innerText; // Get deadline date
+                console.log(title, description, start_date, deadline_date);
                 titleEdit.value = title;
                 descriptionEdit.value = description;
+                start_dateEdit.value = start_date; // Set start date in modal
+                deadline_dateEdit.value = deadline_date; // Set deadline date in modal
                 snoEdit.value = e.target.id;
                 console.log(e.target.id);
                 $('#editModal').modal('toggle');

@@ -31,7 +31,7 @@ To execute the ToTrick project, follow these steps:
 4. **JavaScript** : For dynamic interactions.
 
 ## Screencast
-  https://youtu.be/LgC_BBP8ko8
+  [https://youtu.be/LgC_BBP8ko8](https://youtu.be/JVN9fYGAyeU?si=QXmuX_YOkubnvrR6)
 
 ## Project-report
 https://drive.google.com/file/d/10QksEpIoQTfRONwxYUiBwnCe8Ez2rlWD/view?usp=drive_link
